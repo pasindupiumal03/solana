@@ -9,9 +9,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { usePhantomWallet } from "@/hooks/use-phantom-wallet"
 import { useRouter } from "next/navigation"
 
-
 export default function HomePage() {
-  const { isConnected} = usePhantomWallet()
+  const { isConnected } = usePhantomWallet()
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
 
@@ -19,7 +18,7 @@ export default function HomePage() {
     setMounted(true)
   }, [])
 
-  const handleLaunchSOL = () =>{
+  const handleLaunchSOL = () => {
     router.push("/dashboard")
   }
 
@@ -27,63 +26,60 @@ export default function HomePage() {
     return null
   }
 
-  return(
-    <div className = "min-h screen bg-gradient-to-br from-background via-primary/5 to accent/10 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer events-none">
-        <div className="absolute -top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float"
-        
-        style = {{animationDelay: "1s"}}
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/10 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute top-40 right-20 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "1s" }}
         ></div>
-
-        <div className="absolute bottom-20 left-1/3 w-80 bg-chart-3/20 rounde-full blur-3xl animate-float"
-        
-        style={{animationDelay:"2s"}}
+        <div
+          className="absolute bottom-20 left-1/3 w-80 h-80 bg-chart-3/20 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
         ></div>
 
         <div className="absolute top-1/4 left-1/4 animate-float opacity-20">
-          <Coins className="w-8 h-8 text-primary"/>
+          <Coins className="w-8 h-8 text-primary" />
         </div>
-
-        <div className="absolute top-1/3 left-1/3 animate-float opacity-30" style = {{animationDelay: "0.5s"}}>
-          <BarChart3 className="w-6 h-6 text-accent"/>
+        <div className="absolute top-1/3 right-1/3 animate-float opacity-30" style={{ animationDelay: "0.5s" }}>
+          <BarChart3 className="w-6 h-6 text-accent" />
         </div>
-
-        <div className="absolute top-1/4 left-1/3 animate-float opacity-25" style = {{animationDelay: "1.5s"}}>
-          <Sparkles className="w-10 h-10 text-chart"/>
+        <div className="absolute bottom-1/4 left-1/3 animate-float opacity-25" style={{ animationDelay: "1.5s" }}>
+          <Sparkles className="w-10 h-10 text-chart-3" />
         </div>
-
-        <div className="absolute top-1/2 left-1/4 animate-float opacity-20" style = {{animationDelay: "2.5s"}}>
-          <TrendingUp className="w-7 h-7 text-primary"/>
+        <div className="absolute top-1/2 right-1/4 animate-float opacity-20" style={{ animationDelay: "2.5s" }}>
+          <TrendingUp className="w-7 h-7 text-primary" />
         </div>
-
       </div>
 
-      <header className = "glass-card sticky top-0 z-50 border-b-0">
-        <div className = "container mx-auto px-4 py-4 flex justify-between">
-          <div className = "flex items-center gap-3 animate-slide-in-left">
-            <div className = "w-10= h-10 bg-gradient-to-br from-primary to accent rounded-xl flex items-center justify-center animate-glow">
-              <TrendingUp className = "h-6 w-6 text-white"/>
+      <header className="glass-card sticky top-0 z-50 border-b-0">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3 animate-slide-in-left">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center animate-glow">
+              <TrendingUp className="h-6 w-6 text-white" />
             </div>
-            <span className = "text-2xl font-bold gradient-text">Solana Tracker</span>
+            <span className="text-2xl font-bold gradient-text">Solana Tracker</span>
           </div>
-          <div className = "flex items-center gap-4 animate-slide-in-right">
-            <ThemeToggle/>
-            <WalletButton/>
+          <div className="flex items-center gap-4 animate-slide-in-right">
+            <ThemeToggle />
+            <WalletButton />
           </div>
         </div>
       </header>
 
-      <main className = "container mx-auto px-4 py-20 relative z-10">
-        <div className = "text-center max-w-5xl mx-auto">
-          <div className = "animate-fade-in-up">
-            <h1 className = "text-6xl md:text-8xl font-bold mb-8 text-balance leading-tight">Track Your <span className = "gradient-text animate-crypto-pulse">Solana </span>Portfolio
+      <main className="container mx-auto px-4 py-20 relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
+          <div className="animate-fade-in-up">
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 text-balance leading-tight">
+              Track Your <span className="gradient-text animate-crypto-pulse">Solana</span> Portfolio
             </h1>
-            <p className = "text-xl md:text-2xl text-muted-foreground mb-12 text-pretty max-w-3xl mx-auto leading-relaxed">
-              Connet your Panthom wallet and get real-time insights into your SOL tokens,
-              trending cryptocurrencies,
-              and portfolio performence with our modern, intuitive interface.</p>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-pretty max-w-3xl mx-auto leading-relaxed">
+              Connect your Phantom wallet and get real-time insights into your SOL tokens, trending cryptocurrencies,
+              and portfolio performance with our modern, intuitive interface.
+            </p>
           </div>
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20 animate-scale-in">
             {isConnected ? (
               <Button
@@ -101,7 +97,7 @@ export default function HomePage() {
                   <WalletButton />
                 </div>
               </div>
-           )}
+            )}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">

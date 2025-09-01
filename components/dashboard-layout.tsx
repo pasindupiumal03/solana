@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { BarChart3, Wallet, TrendingUp, Settings, Menu, X, Home, Activity, Sidebar } from "lucide-react"
+import { BarChart3, Wallet, TrendingUp, Settings, Menu, X, Home, Activity } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { WalletButton } from "@/components/wallet-button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -12,30 +12,30 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 interface DashboardLayoutProps {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
-const SidebarItems = [
-    {
-        title: "Wallet Info",
-        icon: Wallet,
-        href: "/dashboard/wallet",
-    },
-    {
-        title: "Trending Tokens",
-        icon: TrendingUp,
-        href: "/dashboard/trending",
-    },
-    {
-        title: "Activity",
-        icon: BarChart3,
-        href: "/dashboard/activity",
-    },
-    {
-        title: "Settings",
-        icon: Settings,
-        href: "/dashboard/settings",
-    },
+const sidebarItems = [
+  {
+    title: "Wallet Info",
+    icon: Wallet,
+    href: "/dashboard/wallet",
+  },
+  {
+    title: "Trending Tokens",
+    icon: TrendingUp,
+    href: "/dashboard/trending",
+  },
+  {
+    title: "Activity",
+    icon: Activity,
+    href: "/dashboard/activity",
+  },
+  {
+    title: "Settings",
+    icon: Settings,
+    href: "/dashboard/settings",
+  },
 ]
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
@@ -60,12 +60,13 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-50 w-64 glass-card border-r border-white/10 transform transition-all duration-300 ease-out lg:translate-x-0",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex h-full flex-col">
           <div className="flex items-center justify-between p-6 border-b border-white/10">
             <div className="flex items-center gap-3">
-                <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center glow-primary">
+              <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center glow-primary">
                 <TrendingUp className="h-6 w-6 text-primary" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
